@@ -147,6 +147,9 @@ def create_authenticator(auth_object, temp_folder):
     elif auth_type == 'google_oauth':
         from auth.auth_google_oauth import GoogleOauthAuthenticator
         authenticator = GoogleOauthAuthenticator(auth_object)
+    if auth_type == 'static':
+        from auth.auth_static import StaticAuthenticator
+        authenticator = StaticAuthenticator(auth_object)
     else:
         raise Exception(auth_type + ' auth is not supported')
 
